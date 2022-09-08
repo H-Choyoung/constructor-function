@@ -43,6 +43,28 @@ const objectData = {
 //중앙값 : 정렬된 배열에 대하여 배열을 절반으로 나누는 연습...
 
 
+//! 강사 답안-------------------------------------------------
 
+function randomData(minInt, maxInt) {
+  const getRandomValue = Math.random()*(maxInt - minInt + 1) + minInt;
+  return Math.floor(getRandomValue);
+}
 
+function getRandomIntArray(count, minInt, maxInt) {
+  const setArray = [];
+
+  let handle = 0; 
+  while(handle < count) {
+    let RandomValue = randomData(minInt, maxInt);
+    if(setArray.includes(RandomValue) === false) {
+    setArray.push(RandomValue);
+    handle++;
+    }
+  }
+  setArray.sort((a, b) => a - b); //중앙값 정렬 
+  // console.log(setArray); 
+  return setArray;
+}
+const setData = getRandomIntArray(3, 1, 20);
+console.log(setData);
 
